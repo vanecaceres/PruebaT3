@@ -1,11 +1,11 @@
 
 datos = open("WDBC.dat", "r")
-or linea in datos:
-    linea = linea.split(‘,’)
-    print ‘Persona: ‘
-    print ‘————‘
-    print ‘Nombre: ‘ + linea[0] + ‘, Apellidos: ‘ + linea[1] + ‘, Edad: ‘ + linea[2]
-    print ‘\n’
+for linea in datos:
+    linea = linea.split(",")
+    print "Persona: "
+    print "————"
+    print "Nombre: " + linea[0] + ", Apellidos: " + linea[1] + ", Edad: " + linea[2]
+    print "\n"
 
 columna1 =datos[:,0]
 columna2 =datos[:,1]
