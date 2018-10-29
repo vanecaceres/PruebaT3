@@ -30,4 +30,5 @@ for i in range(len(variable)):
 	for j in range(len(variable)):
 	#Me va a ir sumando los valores
 		imaginario[i]= imaginario[i] + variable[j]*np.sin(-2*np.pi*i*j/ndatos)
+
 		real[i] = real[i] + variable[j]*np.cos(-2*np.pi*i*j/ndatos)
