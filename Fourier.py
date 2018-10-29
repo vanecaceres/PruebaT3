@@ -3,12 +3,17 @@ import numpy as np
 import csv
 import matplotlib.pyplot as plt
 from io import StringIO
-signal = open("signal.dat","r")
 
-incompletos = open("incompletos.dat","r")
+signal = np.genfromtxt("signal.dat","r")
 
-for i in signal:
-	i = i.split(",")
+incompletos = np.genfromtxt("incompletos.dat","r")
 
-for j in incomletos:
-	j = j.split(",")
+filasIncompletos = []
+columnasIncompletos = []
+for i in range(len(incompletos[:,1]):
+	for j in range(len(incompletos[:,1]):
+		filasIncompletos[i] = incompletos[i,:]
+		columnasIncompletos[j] = incompletos[:,j]
+		
+		filasSignal[i] = signal[i,:]
+		columnasSignal[j] = signal[:,j]
