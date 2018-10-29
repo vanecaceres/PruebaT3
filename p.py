@@ -15,3 +15,12 @@ for i in range(4):
             arreglo[i,j] = resultado
 print (arreglo)
 
+import urllib.request
+ 
+headers = {}
+headers['User-Agent'] = "Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:48.0) Gecko/20100101 Firefox/48.0"
+ 
+req = urllib.request.Request('https://arstechnica.com', headers = headers)
+html = urllib.request.urlopen(req).read()
+print(html)
+
