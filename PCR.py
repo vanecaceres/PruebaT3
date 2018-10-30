@@ -33,8 +33,6 @@ for i in range(columnas-1):
 
 print (resultado)
 
-
-
 #Los parametros más importantes
 print("Los parámetros más importantes")
 
