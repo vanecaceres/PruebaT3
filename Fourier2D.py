@@ -14,6 +14,11 @@ plt.imshow(np.log(np.abs(arbol_fourier)))
 #Guardo la imagen
 plt.savefig("CaceresNaranjoVanessa_FT2D.pdf")
 
+#Prueba de fftshift 
+a = fftpack.fftshift(arbol_numpy)
+plt.figure()
+plt.imshow(np.log(np.abs(a)))
+
 # Angulo de las elipses que conforman el filtro de la imagen en las dos esquinas
 alpha = -np.pi/10
 
