@@ -33,13 +33,6 @@ for i in range(columnas-1):
 
 print (resultado)
 
-#Estos son los autovalores
-
-autovalores = linalg.eig(matriz)
-
-#Estos son los autovectores
-
-autovectores =
 
 
 #Los parametros más importantes
