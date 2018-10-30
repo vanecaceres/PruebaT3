@@ -18,7 +18,7 @@ plt.savefig("CaceresNaranjoVanessa_FT2D.pdf")
 alpha = -np.pi/10
 
 # Genero mi X y Y con las posiciones de cada punto en la imagen
-X,Y = np.meshgrid(range(len(arbol_fourier)), range(len(arbol_fourier)))
+X,Y = np.meshgrid(range(len(arbol_fourier)), range(len(arbol_fou0rier)))
 #Primera elipse
 # Desplazar mi X y Y para ubicar cada elipse con un numero aproximado a la ubicacion
 #Costado superior izquierdo porque mi 0 esta en la esquina superior izquierda
@@ -29,5 +29,9 @@ Ydesplazado = Y - 45
 arbol_fourier[ (Xdesplazado*np.cos(alpha) + Ydesplazado*np.sin(alpha))**2/1 + (Xdesplazado*np.sin(alpha) - Ydesplazado*np.cos(alpha))**2/5 < 250] = 0
 #Menor a 250 porque es el tamaño total de la imagen
 
-
-
+#Segunda elipse
+#Desplazar de nuevo para ubicar la elipse, en este caso en el costado inferior derecho
+#Mi 250 que es el valor total está en la esquina derecha inferior
+Xdesplazado = X - 180
+Ydesplazado = Y - 220
+arbol_fourier[ (Xdesplazado*np.cos(alpha) + Ydesplazado*np.sin(alpha))**2/1 + (Xdesplazado*np.sin(alpha) - Ydesplazado*np.cos(alpha))**2/5 < 250] = 0
