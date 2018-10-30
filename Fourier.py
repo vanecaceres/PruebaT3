@@ -49,10 +49,10 @@ def analisis_fourier(tiempo, variable, fc):
     realfiltrado = np.zeros(np.shape(variable))
     imaginariofiltrado = np.zeros(np.shape(variable))
     
-    # Filtrar la senal
+    #Filtrar la senal
     for i in range(ndatos):
         if -fc < frecuencias[i] and frecuencias[i] < fc:
-            # Valores para conservar porque estan en la banda
+            # Valores para conservar porque estan en dentro de las condiciones
             realfiltrado[i] = real[i]
             imaginariofiltrado[i] = imaginario[i]
         elif frecuencias[i] < -fc or fc < frecuencias[i]:
