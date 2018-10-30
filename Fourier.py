@@ -70,6 +70,9 @@ def analisis_fourier(tiempo, variable, fc):
 real, imaginario, frecuencias, filtrado = analisis_fourier(signal[:,0], signal[:,1], fc=1000)
 
 
+#Hago el gráfico de mis frecuencias
+plt.figure()
+plt.plot(frecuencias, real**2+imaginario**2)
 
 
 
