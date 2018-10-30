@@ -13,3 +13,17 @@ plt.figure()
 plt.imshow(np.log(np.abs(arbol_fourier)))
 #Guardo la imagen
 plt.savefig("CaceresNaranjoVanessa_FT2D.pdf")
+
+# Angulo de las elipses que conforman el filtro de la imagen en las dos esquinas
+alpha = -np.pi/10
+
+# Genero mi X y Y con las posiciones de cada punto en la imagen
+X,Y = np.meshgrid(range(len(arbol_fourier)), range(len(arbol_fourier)))
+#Primera elipse
+# Desplazar mi X y Y para ubicar cada elipse con un numero aproximado a la ubicacion
+Xdesplazado = X - 45
+Ydesplazado = Y - 45
+
+#Igualo a cero los armonicos dentro de cada elipse
+arbol_fourier[ (Xdesplazado*np.cos(alpha) + Ydesplazado*np.sin(alpha))**2/1 + (Xdesplazado*np.sin(alpha) - Ydesplazado*np.cos(alpha))**2/5 < 250] = 0
+#Menor a 250 porque es el tamaño total de la imagen
