@@ -21,9 +21,13 @@ alpha = -np.pi/10
 X,Y = np.meshgrid(range(len(arbol_fourier)), range(len(arbol_fourier)))
 #Primera elipse
 # Desplazar mi X y Y para ubicar cada elipse con un numero aproximado a la ubicacion
+#Costado superior izquierdo porque mi 0 esta en la esquina superior izquierda
 Xdesplazado = X - 45
 Ydesplazado = Y - 45
 
 #Igualo a cero los armonicos dentro de cada elipse
 arbol_fourier[ (Xdesplazado*np.cos(alpha) + Ydesplazado*np.sin(alpha))**2/1 + (Xdesplazado*np.sin(alpha) - Ydesplazado*np.cos(alpha))**2/5 < 250] = 0
 #Menor a 250 porque es el tamaño total de la imagen
+
+
+
