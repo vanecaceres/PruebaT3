@@ -69,16 +69,6 @@ def analisis_fourier(tiempo, variable, fc):
 
 real, imaginario, frecuencias, filtrado = analisis_fourier(signal[:,0], signal[:,1], fc=1000)
 
-#Hago el gráfico de mis frecuencias
-plt.figure()
-plt.plot(frecuencias, real**2+imaginario**2)
-plt.xlabel('Frecuencia [Hz]')
-plt.ylabel('Amplitud')
-plt.grid()
-plt.savefig('ApellidoNombre_TF.pdf')
-plt.xlim(-600,600)
-print("**BONO** Frecuencias calculadas sin usar fftfreq")
-print("En la grafica se ve que el armonico principal actua en una frecuencia alrededor de 160-180 Hz y otros dos armonicos ique se logran resaltar a una frecuencia de alrededor de 250 y  410 Hz")
 
 
 
