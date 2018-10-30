@@ -11,4 +11,5 @@ arbol_fourier = fftpack.fft2(arbol_numpy)
 #Creo una imagen y la guardo
 plt.figure()
 plt.imshow(np.log(np.abs(arbol_fourier)))
+#Guardo la imagen
 plt.savefig("CaceresNaranjoVanessa_FT2D.pdf")
