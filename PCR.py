@@ -89,3 +89,10 @@ for k in range(ndatos):
         datos_proyectados[1,k] = datos_proyectados[1,k] + PC2[i]*datos[i,k]      
 #print(np.shape(datos_proyectados))
 
+#Ahora del archivo WDBC.dat voy a sacar de la columna 1 si es Benigno o Maligno
+Benigno_o_maligno = np.genfromtxt("WDBC.dat", delimiter = ",",unpack = True,  usecols = (1), dtype=str)
+#Del archivo asigno benigno a B y maligno a M
+Benigno = Benigno_o_maligno=="B"
+Maligno = Benigno_o_maligno=="M"
+
+#Ahora hago el plot de mis benignos y mis malignos
