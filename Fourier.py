@@ -115,3 +115,38 @@ plt.xlim(-600,600)
 print("bono","Frecuencias calculadas sin usar fftfreq")
 print("En la grafica se ve que el armonico principal actua en una frecuencia alrededor de 160-180 Hz y otros dos armonicos ique se logran resaltar a una frecuencia de alrededor de 250 y  410 Hz")
 
+
+# grafica de señal filtrada
+plt.figure()
+plt.plot(signal[:,0], filtrado1000, c = "r" )
+plt.xlabel("Tiempo []")
+plt.ylabel("Amplitud")
+plt.grid()
+plt.savefig("CaceresNaranjoVanessa_filtrado.pdf")
+#Mensaje de que no se puede realizar la segunda transformada con incompletos
+print("No se puede hacer la transformada de los datos incompletos.dat porque los datos de la variable del tiempo no estan bien espaciados")
+#Graficar las frecuencias originales, con interpolacion cuadratica y con interpolacion cubica
+plt.figure(figsize=(5,10))
+plt.subplot(3,1,1)
+
+plt.plot(frecuencias, real**2+imaginario**2, c = "purple")
+plt.xlim(-1000,1000)
+plt.title("original")
+plt.ylabel("Amplitud")
+plt.subplot(3,1,2)
+
+plt.plot(o2_frecuencias, o2_real**2+o2_imaginario**2, c = "pink")
+plt.xlim(-1000,1000)
+plt.title("Interpolacion cuadrada")
+plt.ylabel("Amplitud")
+plt.subplot(3,1,3)
+plt.plot(o3_frecuencias, o3_real**2+o3_imaginario**2, c = "green")
+plt.xlim(-1000,1000)
+plt.title("Interpolacion cubica")
+
+plt.savefig("CaceresNaranjoVanessa_TF_interpola.pdf")
+
+print("La interpolacion cuadrada agrega unas frecuencias de poca amplitud entre aproximadamente 500-1000 y disminuye el tercer pico desde 150000 hasta 80000 aproximadamente")
+print("La interpolacion cubica disminuye la amplitud del tercer pico y agrega frecuencias de poca amplitud")
+
+
