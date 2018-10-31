@@ -11,19 +11,15 @@ for i in range(len(datos[:,0])):
     columnas.append(i)
     columnas[i] = datos[:,i]
 
+# quito el primer dato porque no es una medicion ya que es un valor demasiado grande y me daña mis calculos
+datos = datos[1:,:] 
+#print(np.shape(datos))
+#Asigno variables y numero de datos 30,569
+variables, ndatos = np.shape(datos)
+#Caculo las medias de cada variable con un for que me las recorra todas
 medias = []
-for i in range(len(datos[:,0])):
-    medias.append(i)
-    medias[i] = np.mean(columnas[i])
-
-#print(len(datos[:,0]))
-
-#tamano = len(datos[:,0])-1
-
-arreglo = np.ones((31,31))
+for i in range(variables): 
+    #Calcula la media como la suma de datos/numero de datos
+    medias.append( np.sum(datos[i,:])/ndatos ) 
 
 
-#Los parametros más importantes
-print("Los parámetros más importantes")
-
-  
