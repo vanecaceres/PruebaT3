@@ -100,5 +100,7 @@ plt.plot(datos_proyectados[0,Benigno], datos_proyectados[1,Benigno], "x", c="pur
 plt.plot(datos_proyectados[0,Maligno], datos_proyectados[1,Maligno], "x", c="pink", label = "Maligno")
 plt.legend()
 plt.grid()
-plt.title("Proyeccion de los datos en Ejes PC1 y PC2 Diagnostico benigno en morado y maligno en rosado")
+plt.title("Proyeccion de los datos en Ejes PC1 y PC2")
 plt.savefig("CaceresNaranjoVanessa_PCA.pdf")
+print("Al calcular las proyecciones PC1 y PC2 de cada caso de cancer, se ppuede determinar si es maligno desde que el PC1 sea mayor a 2000. Si el PC1 es menor a 2000 no se puede diagnosticar si es maligno porque es una zona deonde se encuentran ambos diagnosticos")
+
