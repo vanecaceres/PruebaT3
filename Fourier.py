@@ -149,4 +149,21 @@ plt.savefig("CaceresNaranjoVanessa_TF_interpola.pdf")
 print("La interpolacion cuadrada agrega unas frecuencias de poca amplitud entre aproximadamente 500-1000 y disminuye el tercer pico desde 150000 hasta 80000 aproximadamente")
 print("La interpolacion cubica disminuye la amplitud del tercer pico y agrega frecuencias de poca amplitud")
 
-
+#Grafica de frecuencia de corte de 1000
+plt.figure(figsize=(5,10))
+plt.subplot(2,1,1)
+plt.plot(signal[:,0], filtrado1000, label = "filtro orig", c = "r")
+plt.plot(xnuevo, o2_filtrado1000, label = "cuadratica", c = "purple")
+plt.plot(xnuevo, o3_filtrado1000, label ="cubica", c = "pink")
+plt.legend()
+plt.title("Grafica1")
+plt.ylabel("Amplitud  despues de filtro a 1000")
+#Grafica de frecuencia de corte de 500
+plt.subplot(2,1,2)
+plt.plot(signal[:,0], filtrado500, label = "filtro orig" , c = "green")
+plt.plot(xnuevo, o2_filtrado500,label = "cuadratica", c = "red")
+plt.plot(xnuevo, o3_filtrado500 , label ="cubica", c = "gold")
+plt.title("Grafica2")
+plt.legend()
+plt.ylabel("Amplitud  despues de filtro a 500")
+plt.savefig("CaceresNaranjoVanessa_2Filtros.pdf")
