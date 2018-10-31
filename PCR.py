@@ -21,17 +21,7 @@ for i in range(len(datos[:,0])):
 #tamano = len(datos[:,0])-1
 
 arreglo = np.ones((31,31))
-#print (arreglo)
-resultado = 0
 
-filas = len(datos[0,:])
-columnas = len(datos[:,0])
-
-for i in range(columnas-1):
-    for j in range(filas):
-        resultado = np.sum((datos[i,j]-medias[i])*(datos[i+1,j]-medias[i+1]))/tamano
-
-print (resultado)
 
 #Los parametros más importantes
 print("Los parámetros más importantes")
