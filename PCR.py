@@ -95,4 +95,9 @@ Benigno_o_maligno = np.genfromtxt("WDBC.dat", delimiter = ",",unpack = True,  us
 Benigno = Benigno_o_maligno=="B"
 Maligno = Benigno_o_maligno=="M"
 
-#Ahora hago el plot de mis benignos y mis malignos
+#Ahora hago el plot de mis benignos y mis maligno
+plt.plot(datos_proyectados[0,Benigno], datos_proyectados[1,Benigno], "x", c="purple")
+plt.plot(datos_proyectados[0,Maligno], datos_proyectados[1,Maligno], "x", c="pink")
+plt.grid()
+plt.title("Proyeccion de los datos en Ejes PC1 y PC2 Diagnostico benigno en morado y maligno en rosado")
+plt.savefig("CaceresNaranjoVanessa_PCA.pdf")
