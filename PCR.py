@@ -76,4 +76,17 @@ for i in range(cuantas_variables_mas_importantes):
             mas_importante = j
     print(" Variable mas importante segun autovalor ", i, "es ", mas_importante)
 
+#Proyecciones sobre ejes PC1 y PC2
+#Extraigo los componentes principales
+PC1 = autovectores[:,0]
+PC2 = autovectores[:,1]
+
+# Hacer producto punto de cada columna de datos con cada uno de los componentes principales que saqué anteriormente
+datos_proyectados = np.ones((2,ndatos))*0
+for k in range(ndatos):
+    for i in range(variables):
+        datos_proyectados[0,k] = datos_proyectados[0,k] + PC1[i]*datos[i,k]
+        datos_proyectados[1,k] = datos_proyectados[1,k] + PC2[i]*datos[i,k]
+        
+#print(np.shape(datos_proyectados))
 
