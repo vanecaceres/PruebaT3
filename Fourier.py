@@ -85,4 +85,21 @@ def interpolaciones(x, y, n_nuevo_datos):
 # Crear datos interpolados para mis datos incompletos
 xnuevo, interpolacion_o2, interpolacion_o3 = interpolaciones(incompletos[:,0], incompletos[:,1], 512)
 
+#Analisis de Fourier
+#filtro pasa bajos con frecuencia de corte fc = 1000Hz
+real, imaginario, frecuencias, filtrado1000 = analisis_fourier(signal[:,0], signal[:,1], fc=1000)
+#500
+real, imaginario, frecuencias, filtrado500 = analisis_fourier(signal[:,0], signal[:,1], fc=500)
+#Interpolacion cuadrática para 500 y 1000
+o2_real, o2_imaginario, o2_frecuencias, o2_filtrado1000 = analisis_fourier(xnuevo, interpolacion_o2, fc=1000)
+o2_real, o2_imaginario, o2_frecuencias, o2_filtrado500 = analisis_fourier(xnuevo, interpolacion_o2, fc=500)
+#Interpolacion cúbica para 500 y 1000
+o3_real, o3_imaginario, o3_frecuencias, o3_filtrado1000 = analisis_fourier(xnuevo, interpolacion_o3, fc=1000)
+o3_real, o3_imaginario, o3_frecuencias, o3_filtrado500 = analisis_fourier(xnuevo, interpolacion_o3, fc=500)
 
+#Creo mi gŕafica con los datos de signal originales
+plt.figure()
+plt.plot(signal[:,:])
+plt.title("Datos de signal")
+plt.grid()
+plt.savefig("CaceresNaranjoVanessa_signal.pdf")
