@@ -22,4 +22,30 @@ for i in range(variables):
     #Calcula la media como la suma de datos/numero de datos
     medias.append( np.sum(datos[i,:])/ndatos ) 
 
+#Creo un arreglo de ceros con el tamaño de los datos
+diferencias_medias = np.zeros(np.shape(datos))
+#Creo un for que me recorra las variables y los datos para restarle a cada dato, su media correspondiente
+for i in range( variables ):
+    for j in range( ndatos ):
+        diferencias_medias[i,j] = datos[i,j]-medias[i]
+
+# En un arreglo de unos guardo la matriz de covarianza con tamaño 30x30 (variables a analizar)
+arreglo = np.ones((variables,variables))
+#Calculo la matriz de covarianza (np.sum((x-xMed)*(y-yMed))/n)
+for i in range(variables):
+    for j in range(variables):
+        resultado = np.sum( diferencias_medias[i,:]*diferencias_medias[j,:] )/ndatos
+        arreglo[i,j] = resultado
+
+#Imprimo mi matriz de covarianza 30x30
+print("Matriz de covarianza:")
+for i in range(variables):
+    print(arreglo[i,:])
+#Del paquete de numpy uso linalg.eig para calcular mis autovalores y autovectores
+autovalores, autovectores = np.linalg.eig(arreglo)
+print("Autovectores y autovalores")
+for i in range(variables):
+    print("Autovalor", " ", i, " " ,autovalores[i])
+    print("Autovector", "  ", i, autovectores[:,i])
+
 
