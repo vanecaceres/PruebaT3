@@ -106,7 +106,7 @@ plt.savefig("CaceresNaranjoVanessa_signal.pdf")
 
 #Hago el gráfico de mis frecuencias
 plt.figure()
-plt.plot(frecuencias, real**2+imaginario**2)
+plt.plot(frecuencias, real**2+imaginario**2, c = "pink")
 plt.xlabel("Frecuencia [Hz]")
 plt.ylabel("Amplitud")
 plt.grid()
