@@ -5,7 +5,8 @@ from scipy import fftpack
 from scipy.interpolate import interp1d
 
 #Cargo la imagen del arbol
-arbol_numpy = img.imread("arbol(1).png")
+#Usé arbol(1).pgn que era el que estaba en sicua pero en el enunciado decía que se llamaba "arbol.png, sin embargo lo modifiqué a el que decia el enunciado
+arbol_numpy = img.imread("arbol.png")
 #Transformada de fourier en 2D
 arbol_fourier = fftpack.fft2(arbol_numpy)
 #Creo la imagen y la guardo
