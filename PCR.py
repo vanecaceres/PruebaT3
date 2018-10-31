@@ -86,7 +86,6 @@ datos_proyectados = np.ones((2,ndatos))*0
 for k in range(ndatos):
     for i in range(variables):
         datos_proyectados[0,k] = datos_proyectados[0,k] + PC1[i]*datos[i,k]
-        datos_proyectados[1,k] = datos_proyectados[1,k] + PC2[i]*datos[i,k]
-        
+        datos_proyectados[1,k] = datos_proyectados[1,k] + PC2[i]*datos[i,k]      
 #print(np.shape(datos_proyectados))
 
