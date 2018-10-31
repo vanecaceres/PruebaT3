@@ -81,13 +81,5 @@ plt.xlim(-600,600)
 print("bono","Frecuencias calculadas sin usar fftfreq")
 print("En la grafica se ve que el armonico principal actua en una frecuencia alrededor de 160-180 Hz y otros dos armonicos ique se logran resaltar a una frecuencia de alrededor de 250 y  410 Hz")
 
-# grafica de señal filtrada
-plt.figure()
-plt.plot(datos[:,0], filtrado )
-plt.xlabel("Tiempo []")
-plt.ylabel("Amplitud")
-plt.grid()
-plt.savefig('CaceresNaranjoVanessa_filtrado.pdf')
-#Mensaje de que no se puede realizar la segunda transformada con incompletos
-print("No se puede hacer la transformada de los datos incompletos.dat porque los datos de la variable del tiempo no estan bien espaciados")
+
 
