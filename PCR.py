@@ -48,4 +48,32 @@ for i in range(variables):
     print("Autovalor", " ", i, " " ,autovalores[i])
     print("Autovector", "  ", i, autovectores[:,i])
 
+print("Autovalores originales")
+print(autovalores)
+
+#Ordeno los autovectores de acuerdo a los autovalores
+for i in range(variables):
+    for j in range(i, variables):
+        if autovalores[j] > autovalores[i]:
+            a = autovalores[i].copy()
+            autovalores[i] = autovalores[j]
+            autovalores[j] = a
+            
+            v = autovectores[j].copy()
+            autovectores[:,i] = autovectores[:,j]
+            autovectores[:,j] = v
+
+print("Autovalores ordenados")
+print(autovalores)            
+
+#Las variables mas importantes
+cuantas_variables_mas_importantes = 3
+
+for i in range(cuantas_variables_mas_importantes):
+    mas_importante = 0
+    for j in range(variables):
+        if np.abs(autovectores[j,i]) > np.abs(autovectores[mas_importante,i]):
+            mas_importante = j
+    print(" Variable mas importante segun autovalor ", i, "es ", mas_importante)
+
 
