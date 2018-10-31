@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 from scipy.fftpack import ifft
 from scipy.interpolate import interp1d
 from io import StringIO
+
 #Importo los datos de signal.dat
 signal = np.genfromtxt("signal.dat", dtype=None, comments="#", delimiter=",",unpack = False)
 #Importo los datos desde incompletos.dat
@@ -63,23 +64,25 @@ def analisis_fourier(tiempo, variable, fc):
             imaginariofiltrado[i] = imaginario[i]*1e-3
 
     
-    filtrado = ifft(realfiltrado + j*imaginariofiltrado)
+    filtrado = ifft(realfiltrado + 1j*imaginariofiltrado)
     #Devuelvo los valores que necesito
     return real, imaginario, frecuencias, filtrado.real
-#filtro pasa bajos con frecuencia de corte fc = 1000Hz
-real, imaginario, frecuencias, filtrado = analisis_fourier(signal[:,0], signal[:,1], fc=1000)
 
 
-#Hago el gráfico de mis frecuencias
-plt.figure()
-plt.plot(frecuencias, real**2+imaginario**2)
-plt.xlabel("Frecuencia [Hz]")
-plt.ylabel("Amplitud")
-plt.grid()
-plt.savefig("CaceresNaranjoVanessa_TF.pdf")
-plt.xlim(-600,600)
-print("bono","Frecuencias calculadas sin usar fftfreq")
-print("En la grafica se ve que el armonico principal actua en una frecuencia alrededor de 160-180 Hz y otros dos armonicos ique se logran resaltar a una frecuencia de alrededor de 250 y  410 Hz")
+def interpolaciones(x, y, n_nuevo_datos):
+    #Creo la interpolación
+    #Cuadrática
+    interpolacion_o2 = interp1d(x, y, kind='quadratic')
+    #cúbica
+    interpolacion_o3 = interp1d(x, y, kind='cubic')
+    
+    #Mi linspace con los x que voy a interpolar
+    xnuevo = np.linspace(x[0], x[-1], n_nuevo_datos)
+    
+    return xnuevo, interpolacion_o2(xnuevo), interpolacion_o3(xnuevo)
+    
 
+# Crear datos interpolados para mis datos incompletos
+xnuevo, interpolacion_o2, interpolacion_o3 = interpolaciones(incompletos[:,0], incompletos[:,1], 512)
 
 
